@@ -1,0 +1,1 @@
+Hello world , this file is create by file system , this part is append from fs.appendFileSync method.

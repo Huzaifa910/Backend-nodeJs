@@ -1,0 +1,16 @@
+{
+  "name": "express-server",
+  "version": "1.0.0",
+  "description": "Making server from Express",
+  "license": "ISC",
+  "author": "Huzaifa Ayub",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodmon app.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
