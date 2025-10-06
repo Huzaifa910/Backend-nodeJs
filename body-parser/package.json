@@ -1,0 +1,15 @@
+{
+  "name": "body-parser",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Huzaifa",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
