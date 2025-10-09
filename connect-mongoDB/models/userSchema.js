@@ -5,9 +5,9 @@ let userSchema = new mongoose.Schema({
     age: Number,
     department: String,
     email: String,
-    passworl: String
-})
+    address: String
+
+});
 
 let userModel = mongoose.model("user" , userSchema);
-
 export default userModel

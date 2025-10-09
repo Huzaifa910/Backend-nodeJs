@@ -3,7 +3,7 @@ import mongoose from "mongoose"
 import userModel from "./models/userSchema.js"
 
 let app = express()
-let PORT = process.env.PORT || 5005
+let PORT = process.env.PORT || 5007
 
 // connect Mongo DB
 let URI = "mongodb+srv://admin:Admin321@cluster0.pbdevl9.mongodb.net/tododata?retryWrites=true&w=majority&appName=Cluster0"
@@ -26,9 +26,17 @@ try {
     
 } catch (error) {
     response.json({
-        message: error.message
+        message: "error from create user",
+        error: error.message
     })
 }
+})
+
+app.get("/getuser" , (req ,res) => {
+      res.json({
+        message: "Response from get users",
+        data: req.body
+      })
 })
 
 app.listen( PORT , ()=>console.log(`Server is running from port ${PORT}` ))
