@@ -1,0 +1,76 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h2{
+  padding: 10px;
+  letter-spacing: 3px;
+}
+
+.todoList{
+    background-color: rgb(228, 235, 137);
+    margin: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    width: 50%;
+    border-radius: 10px;
+}
+
+.addButton{
+ background-color: rgb(228, 235, 137);
+  color: white;
+  border: none;
+  padding: 8px;
+  letter-spacing: 2px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.addButton:hover{
+  background-color: rgb(197, 202, 120) ;
+}
+
+
+.deleteButton {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 6px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-right: 19px;
+  letter-spacing: 2px;
+
+}
+
+.deleteButton:hover {
+  background-color: darkred;
+}
+
+.editButton{
+     background-color: rgb(64, 184, 231);
+  color: white;
+  border: none;
+  padding: 6px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 5px;
+  letter-spacing: 2px;
+
+}
+
+.editButton:hover {
+  background-color: rgb(33, 82, 156);
+}
+
+input{
+  padding: 10px;
+  border-radius: 10px;
+  border-color: rgb(228, 235, 137);
+  margin: 10px;
+  letter-spacing: 1px;
+  font-weight: 600;
+}

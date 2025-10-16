@@ -1,11 +1,13 @@
-import express, { json, response } from "express"
-import mongoose from "mongoose"
-import todoModel from "./models/todoSchema.js"
+import express, { json, response } from "express";
+import mongoose from "mongoose";
+import todoModel from "./models/todoSchema.js";
 // import { v4 as uuidv4 } from "uuid";
-
+import cors from "cors"
 
 let app = express()
 let PORT = process.env.PORT || 5005
+
+app.use(cors())
 
 // connect Mongo DB
 let URI = "mongodb+srv://testUser:test321@cluster0.pbdevl9.mongodb.net/tododata?retryWrites=true&w=majority&appName=Cluster0"
