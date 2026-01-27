@@ -6,8 +6,7 @@ let app = express();
 let PORT = process.env.PORT || 5007;
 
 // connect Mongo DB
-let URI =
-  "mongodb+srv://admin:Admin321@cluster0.pbdevl9.mongodb.net/tododata?retryWrites=true&w=majority&appName=Cluster0";
+let URI = "";
 mongoose
   .connect(URI)
   .then((res) => console.log("Mongo DB connected..."))

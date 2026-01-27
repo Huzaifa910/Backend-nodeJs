@@ -10,7 +10,7 @@ let PORT = process.env.PORT || 5005
 app.use(cors())
 
 // connect Mongo DB
-let URI = "mongodb+srv://testUser:test321@cluster0.pbdevl9.mongodb.net/tododata?retryWrites=true&w=majority&appName=Cluster0"
+let URI = ""
 mongoose
 .connect(URI)
 .then((res)=>console.log("Mongo DB connected..."))
