@@ -13,7 +13,7 @@ export const signupController = async (req, res) => {
     }
 
     const existingUser = await userModel.findOne({ email });
-    console.log("existingUser", existingUser);
+    // console.log("existingUser", existingUser);
 
     if (existingUser) {
       return res.json({
@@ -23,7 +23,7 @@ export const signupController = async (req, res) => {
     }
 
     const hashPassword = await bcrypt.hash(password, 10);
-    console.log("hashPassword", hashPassword);
+    // console.log("hashPassword", hashPassword);
 
     const userObj = {
       ...req.body,
