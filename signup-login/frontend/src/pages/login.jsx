@@ -34,7 +34,7 @@ const LoginPage = () => {
       if (data.status) {
         localStorage.setItem("token", data.token);
         localStorage.setItem("user", JSON.stringify(data.user));
-        navigate("/profile");
+        navigate("/dashboard");
       } else {
         setError(data.message || "login Failed!");
       }

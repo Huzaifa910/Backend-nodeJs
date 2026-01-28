@@ -1,0 +1,148 @@
+.chatbotContainer {
+  height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #020617);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chatWindow {
+  width: 100%;
+  max-width: 900px;
+  height: 90vh;
+  background: #020617;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* Header */
+.header {
+  padding: 14px 18px;
+  background: #020617;
+  border-bottom: 1px solid #1e293b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  color: #f8fafc;
+  font-weight: 600;
+}
+
+.backBtn {
+  background: #1e293b;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Suggestions */
+.suggestions {
+  padding: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #1e293b;
+}
+
+.suggestions button {
+  background: #1e293b;
+  color: #e5e7eb;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.suggestions button:hover {
+  background: #6366f1;
+}
+
+/* Messages */
+.messages {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.empty {
+  text-align: center;
+  margin-top: 80px;
+  color: #94a3b8;
+}
+
+.message {
+  margin-bottom: 14px;
+  max-width: 75%;
+}
+
+.userMessage {
+  margin-left: auto;
+  text-align: right;
+}
+
+.botMessage {
+  margin-right: auto;
+}
+
+.bubble {
+  padding: 12px 14px;
+  border-radius: 14px;
+  line-height: 1.4;
+}
+
+.userMessage .bubble {
+  background: linear-gradient(135deg, #6366f1, #22d3ee);
+  color: #020617;
+}
+
+.botMessage .bubble {
+  background: #020617;
+  color: #e5e7eb;
+  border: 1px solid #1e293b;
+}
+
+.time {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 4px;
+  display: block;
+}
+
+/* Input */
+.inputBox {
+  padding: 12px;
+  display: flex;
+  gap: 10px;
+  border-top: 1px solid #1e293b;
+}
+
+.inputBox textarea {
+  flex: 1;
+  background: #020617;
+  color: white;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  padding: 10px;
+  resize: none;
+}
+
+.inputBox button {
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 0 18px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.inputBox button:disabled {
+  opacity: 0.6;
+}
