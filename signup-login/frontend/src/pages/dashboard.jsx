@@ -91,51 +91,11 @@ const Dashboard = () => {
                     <p className={styles.heroSubtitle}>
                         Hi {user?.name || "User"}! Explore powerful AI tools and features
                     </p>
-                    <div className={styles.userInfo}>
-                        <span className={styles.userEmail}>{user?.email || "user@example.com"}</span>
-                        <button 
-                            onClick={handleLogout}
-                            className={styles.logoutButton}
-                        >
-                            Logout
-                        </button>
-                    </div>
                 </div>
             </header>
 
             {/* Main Content */}
             <main className={styles.mainContent}>
-                {/* Stats Cards */}
-                <section className={styles.statsSection}>
-                    <div className={styles.statCard}>
-                        <div className={styles.statIcon}>📊</div>
-                        <div className={styles.statContent}>
-                            <h3>24</h3>
-                            <p>AI Chats Today</p>
-                        </div>
-                    </div>
-                    <div className={styles.statCard}>
-                        <div className={styles.statIcon}>⏱️</div>
-                        <div className={styles.statContent}>
-                            <h3>156</h3>
-                            <p>Total Usage Hours</p>
-                        </div>
-                    </div>
-                    <div className={styles.statCard}>
-                        <div className={styles.statIcon}>✅</div>
-                        <div className={styles.statContent}>
-                            <h3>98%</h3>
-                            <p>Accuracy Rate</p>
-                        </div>
-                    </div>
-                    <div className={styles.statCard}>
-                        <div className={styles.statIcon}>⚡</div>
-                        <div className={styles.statContent}>
-                            <h3>Fast</h3>
-                            <p>Response Time</p>
-                        </div>
-                    </div>
-                </section>
 
                 {/* Dashboard Cards Grid */}
                 <section className={styles.cardsSection}>

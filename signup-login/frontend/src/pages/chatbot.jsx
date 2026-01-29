@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import styles from "../styles/chatbot.module.css";
+import { formatAIResponse } from "../utils/formatAIResponse";
+
 
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
@@ -60,17 +62,23 @@ const Chatbot = () => {
       );
 
     //   console.log("API RESPONSE:", res.data);
-console.log("FULL RESPONSE:", res);
-console.log("DATA:", res.data.ai);
+// console.log("FULL RESPONSE:", res);
+// console.log("DATA:", res.data.ai);
 
 const botMessage = {
   id: crypto.randomUUID(),
   sender: "bot",
-  text: JSON.stringify(res.data.ai),
+  text: formatAIResponse(res.data.ai),
   time: new Date(),
 };
 
-setMessages(prev => [...prev, botMessage]);
+setMessages((prev) => [...prev, botMessage]);
+
+
+// console.log(res.data.ai)
+console.log("botMessage" , botMessage)
+
+// setMessages(prev => [...prev, botMessage]);
 
     } catch (err) {
       console.error(err);
