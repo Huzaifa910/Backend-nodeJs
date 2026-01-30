@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
+import userModel from "../models/userSchema.js";
 
-export const protect = (req, res, next) => {
+export const protect =async (req, res, next) => {
   try {
     const authHeader = req.headers.authorization;
 
@@ -25,6 +26,17 @@ export const protect = (req, res, next) => {
 
     const decodeToken = jwt.verify(token, process.env.JWT_SECRET);
     // console.log("token decode", decodeToken.id);
+
+    const user = await userModel.findById(decodeToken.id).select("-password");
+
+    if(!user){
+      return res.json({
+        message: "User not found!",
+        status: false
+      })
+    }
+
+    req.user = user
 
     req.userId = decodeToken.id;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from "../styles/dashboard.module.css";
+import "../styles/dashboard.css";
 
 const Dashboard = () => {
     const navigate = useNavigate();
@@ -81,45 +81,45 @@ const Dashboard = () => {
     ];
 
     return (
-        <div className={styles.dashboardContainer}>
+        <div className={ "dashboardContainer"}>
             {/* Hero Section */}
-            <header className={styles.heroSection}>
-                <div className={styles.heroContent}>
-                    <h1 className={styles.heroTitle}>
+            <header className={"heroSection"}>
+                <div className={"heroContent"}>
+                    <h1 className={"heroTitle"}>
                         Welcome to AI Powered Application
                     </h1>
-                    <p className={styles.heroSubtitle}>
+                    <p className={"heroSubtitle"}>
                         Hi {user?.name || "User"}! Explore powerful AI tools and features
                     </p>
                 </div>
             </header>
 
             {/* Main Content */}
-            <main className={styles.mainContent}>
+            <main className={"mainContent"}>
 
                 {/* Dashboard Cards Grid */}
-                <section className={styles.cardsSection}>
-                    <h2 className={styles.sectionTitle}>AI Tools & Features</h2>
-                    <div className={styles.cardsGrid}>
+                <section className={"cardsSection"}>
+                    <h2 className={"sectionTitle"}>AI Tools & Features</h2>
+                    <div className={"cardsGrid"}>
                         {dashboardCards.map((card) => (
                             <div 
                                 key={card.id} 
-                                className={`${styles.dashboardCard} ${styles[card.gradient]}`}
+                                className={"dashboardCard"  [card.gradient]}
                                 onClick={card.onClick}
                             >
-                                <div className={styles.cardHeader}>
-                                    <span className={styles.cardIcon}>{card.icon}</span>
-                                    <h3 className={styles.cardTitle}>{card.title}</h3>
+                                <div className={"cardHeader"}>
+                                    <span className={"cardIcon"}>{card.icon}</span>
+                                    <h3 className={ "cardTitle"}>{card.title}</h3>
                                 </div>
-                                <p className={styles.cardDescription}>{card.description}</p>
-                                <div className={styles.cardFeatures}>
+                                <p className={ "cardDescription"}>{card.description}</p>
+                                <div className={ "cardFeatures"}>
                                     {card.features?.map((feature, index) => (
-                                        <span key={index} className={styles.featureTag}>
+                                        <span key={index} className={ "featureTag"}>
                                             {feature}
                                         </span>
                                     ))}
                                 </div>
-                                <button className={styles.cardButton}>
+                                <button className={ "cardButton"}>
                                     Open →
                                 </button>
                             </div>
@@ -128,17 +128,17 @@ const Dashboard = () => {
                 </section>
 
                 {/* Recent Activity & Quick Actions */}
-                <section className={styles.bottomSection}>
+                <section className={ "bottomSection"}>
                     {/* Recent Activity */}
-                    <div className={styles.recentActivity}>
-                        <h3 className={styles.sectionTitle}>Recent Activity</h3>
-                        <div className={styles.activityList}>
+                    <div className={ "recentActivity"}>
+                        <h3 className={ "sectionTitle"}>Recent Activity</h3>
+                        <div className={ "activityList"}>
                             {recentActivity.map((activity) => (
-                                <div key={activity.id} className={styles.activityItem}>
-                                    <span className={styles.activityIcon}>{activity.icon}</span>
-                                    <div className={styles.activityContent}>
-                                        <p className={styles.activityAction}>{activity.action}</p>
-                                        <span className={styles.activityTime}>{activity.time}</span>
+                                <div key={activity.id} className={ "activityItem"}>
+                                    <span className={ "activityIcon"}>{activity.icon}</span>
+                                    <div className={ "activityContent"}>
+                                        <p className={ "activityAction"}>{activity.action}</p>
+                                        <span className={ "activityTime"}>{activity.time}</span>
                                     </div>
                                 </div>
                             ))}
@@ -146,35 +146,35 @@ const Dashboard = () => {
                     </div>
 
                     {/* Quick Actions */}
-                    <div className={styles.quickActions}>
-                        <h3 className={styles.sectionTitle}>Quick Actions</h3>
-                        <div className={styles.actionsGrid}>
+                    <div className={ "quickActions"}>
+                        <h3 className={ "sectionTitle"}>Quick Actions</h3>
+                        <div className={ "actionsGrid"}>
                             <button 
-                                className={styles.actionButton}
+                                className={ "actionButton"}
                                 onClick={() => navigate('/chatbot')}
                             >
-                                <span className={styles.actionIcon}>🤖</span>
+                                <span className={ "actionIcon"}>🤖</span>
                                 New Chat
                             </button>
                             <button 
-                                className={styles.actionButton}
+                                className={ "actionButton"}
                                 onClick={() => navigate('/profile')}
                             >
-                                <span className={styles.actionIcon}>👤</span>
+                                <span className={ "actionIcon"}>👤</span>
                                 Edit Profile
                             </button>
                             <button 
-                                className={styles.actionButton}
+                                className={ "actionButton"}
                                 onClick={() => navigate('/settings')}
                             >
-                                <span className={styles.actionIcon}>⚙️</span>
+                                <span className={ "actionIcon"}>⚙️</span>
                                 Settings
                             </button>
                             <button 
-                                className={styles.actionButton}
+                                className={ "actionButton"}
                                 onClick={() => navigate('/help')}
                             >
-                                <span className={styles.actionIcon}>❓</span>
+                                <span className={ "actionIcon"}>❓</span>
                                 Help Center
                             </button>
                         </div>
@@ -183,9 +183,9 @@ const Dashboard = () => {
             </main>
 
             {/* Footer */}
-            <footer className={styles.footer}>
+            <footer className={ "footer"}>
                 <p>© 2024 AI Powered Application. All rights reserved.</p>
-                <div className={styles.footerLinks}>
+                <div className={ "footerLinks"}>
                     <a href="/privacy">Privacy Policy</a>
                     <a href="/terms">Terms of Service</a>
                     <a href="/contact">Contact Us</a>
