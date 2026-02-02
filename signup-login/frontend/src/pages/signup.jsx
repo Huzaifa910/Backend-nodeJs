@@ -37,7 +37,6 @@ const SignupPage = () => {
     setError("");
     setSuccess("");
 
-    // Validation
     if (formData.password !== formData.confirmPassword) {
       setError("Passwords do not match");
       return;
@@ -51,18 +50,20 @@ const SignupPage = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post(import.meta.env.VITE_API_URL + "/auth/signup", {
-        name: formData.name,
-        email: formData.email,
-        password: formData.password,
-      });
+      const response = await axios.post(
+        import.meta.env.VITE_API_URL + "/auth/signup",
+        {
+          name: formData.name,
+          email: formData.email,
+          password: formData.password,
+        }
+      );
 
       const data = response.data;
 
       if (data.status) {
         setSuccess("Account created successfully! Redirecting to login...");
 
-        // Wait 2 seconds then redirect
         setTimeout(() => {
           navigate("/");
         }, 2000);
@@ -70,12 +71,12 @@ const SignupPage = () => {
         setError(data.message || "Registration failed");
       }
     } catch (err) {
-   if (err.response) {
-        setError(err.response.data?.message || 'Registration failed');
+      if (err.response) {
+        setError(err.response.data?.message || "Registration failed");
       } else if (err.request) {
-        setError('Network error. Check your connection.');
+        setError("Network error. Check your connection.");
       } else {
-        setError('Something went wrong');
+        setError("Something went wrong");
       }
     } finally {
       setLoading(false);
@@ -83,25 +84,24 @@ const SignupPage = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.card}>
-        <div className={styles.heading}>
+    <div className="auth-container">
+      <div className="auth-card">
+        <div className="auth-heading">
           <h1>Create Account</h1>
           <p>Join us today</p>
         </div>
 
-        {error && <div className={styles.error}>{error}</div>}
+        {error && <div className="auth-error">{error}</div>}
+        {success && <div className="auth-success">{success}</div>}
 
-        {success && <div className={styles.success}>{success}</div>}
-
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <div className={styles.inputGroup}>
+        <form className="auth-form" onSubmit={handleSubmit}>
+          <div className="input-group">
             <label htmlFor="name">Full Name</label>
             <input
               id="name"
               type="text"
-              className={styles.input}
-              placeholder="John Doe"
+              className="auth-input"
+              placeholder="Enter Your Full Name"
               value={formData.name}
               onChange={handleChange}
               required
@@ -109,12 +109,12 @@ const SignupPage = () => {
             />
           </div>
 
-          <div className={styles.inputGroup}>
+          <div className="input-group">
             <label htmlFor="email">Email Address</label>
             <input
               id="email"
               type="email"
-              className={styles.input}
+              className="auth-input"
               placeholder="you@example.com"
               value={formData.email}
               onChange={handleChange}
@@ -123,33 +123,32 @@ const SignupPage = () => {
             />
           </div>
 
-          <div className={styles.inputGroup}>
+          <div className="input-group">
             <label htmlFor="password">Password</label>
             <input
               id="password"
               type="password"
-              className={styles.input}
+              className="auth-input"
               placeholder="Minimum 6 characters"
               value={formData.password}
               onChange={handleChange}
               required
               disabled={loading}
             />
+
             {formData.password && (
-              <div className={styles.passwordStrength}>
-                <div
-                  className={`${styles.strengthBar} ${styles[`strength${passwordStrength.charAt(0).toUpperCase() + passwordStrength.slice(1)}`]}`}
-                ></div>
+              <div className="password-strength">
+                <div className={`strength-bar strength-${passwordStrength}`}></div>
               </div>
             )}
           </div>
 
-          <div className={styles.inputGroup}>
+          <div className="input-group">
             <label htmlFor="confirmPassword">Confirm Password</label>
             <input
               id="confirmPassword"
               type="password"
-              className={styles.input}
+              className="auth-input"
               placeholder="Confirm your password"
               value={formData.confirmPassword}
               onChange={handleChange}
@@ -158,21 +157,21 @@ const SignupPage = () => {
             />
           </div>
 
-          <button type="submit" className={styles.button} disabled={loading}>
+          <button type="submit" className="auth-button" disabled={loading}>
             {loading ? (
               <>
-                <span className={styles.spinner}></span> Creating Account...
+                <span className="spinner"></span> Creating Account...
               </>
             ) : (
               "Create Account"
             )}
           </button>
 
-          <div className={styles.divider}>
+          <div className="divider">
             <span>or</span>
           </div>
 
-          <div className={styles.link}>
+          <div className="auth-link">
             Already have an account? <Link to="/">Sign in</Link>
           </div>
         </form>
@@ -182,3 +181,4 @@ const SignupPage = () => {
 };
 
 export default SignupPage;
+

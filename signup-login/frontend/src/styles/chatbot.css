@@ -1,44 +1,44 @@
 .chatbotContainer {
   height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #f4f6fb;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: Arial, sans-serif;
 }
 
 .chatWindow {
   width: 100%;
   max-width: 900px;
   height: 90vh;
-  background: #323442;
-  border-radius: 16px;
+  background: white;
+  border-radius: 14px;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 /* Header */
-.header {
-  padding: 14px 18px;
-  background: #020617;
-  border-bottom: 1px solid #1e293b;
+.chatHeader {
+  padding: 15px 20px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.title {
-  color: #f8fafc;
-  font-weight: 600;
+.chatTitle {
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .backBtn {
-  background: #1e293b;
-  color: white;
+  background: rgba(255, 255, 255, 0.2);
   border: none;
   padding: 6px 12px;
-  border-radius: 6px;
+  color: white;
+  border-radius: 8px;
   cursor: pointer;
 }
 
@@ -48,39 +48,35 @@
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
-  border-bottom: 1px solid #1e293b;
+  border-bottom: 1px solid #eee;
 }
 
 .suggestions button {
-  background: #1e293b;
-  color: #e5e7eb;
+  background: #eef1ff;
   border: none;
-  padding: 6px 12px;
-  border-radius: 20px;
+  padding: 6px 10px;
+  border-radius: 16px;
   cursor: pointer;
-  font-size: 12px;
-}
-
-.suggestions button:hover {
-  background: #6366f1;
+  font-size: 13px;
 }
 
 /* Messages */
 .messages {
   flex: 1;
-  padding: 16px;
+  padding: 15px;
   overflow-y: auto;
+  background: #fafafa;
 }
 
 .empty {
   text-align: center;
-  margin-top: 80px;
-  color: #94a3b8;
+  color: #888;
+  margin-top: 40px;
 }
 
 .message {
-  margin-bottom: 14px;
-  max-width: 75%;
+  margin-bottom: 12px;
+  max-width: 70%;
 }
 
 .userMessage {
@@ -93,49 +89,50 @@
 }
 
 .bubble {
-  padding: 12px 14px;
+  padding: 10px 14px;
   border-radius: 14px;
-  line-height: 1.4;
+  font-size: 14px;
 }
 
 .userMessage .bubble {
-  background: linear-gradient(135deg, #6366f1, #22d3ee);
-  color: #020617;
+  background: #667eea;
+  color: white;
+  border-bottom-right-radius: 4px;
 }
 
 .botMessage .bubble {
-  background: #020617;
-  color: #e5e7eb;
-  border: 1px solid #1e293b;
+  background: #e5e7eb;
+  color: #333;
+  border-bottom-left-radius: 4px;
 }
 
 .time {
   font-size: 11px;
-  color: #94a3b8;
-  margin-top: 4px;
+  color: #777;
+  margin-top: 2px;
   display: block;
 }
 
 /* Input */
 .inputBox {
-  padding: 12px;
   display: flex;
+  padding: 12px;
+  border-top: 1px solid #eee;
   gap: 10px;
-  border-top: 1px solid #1e293b;
 }
 
 .inputBox textarea {
   flex: 1;
-  background: #020617;
-  color: white;
-  border: 1px solid #334155;
-  border-radius: 10px;
-  padding: 10px;
   resize: none;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 8px;
+  height: 45px;
+  outline: none;
 }
 
 .inputBox button {
-  background: #6366f1;
+  background: #667eea;
   color: white;
   border: none;
   padding: 0 18px;
@@ -144,5 +141,6 @@
 }
 
 .inputBox button:disabled {
-  opacity: 0.6;
+  opacity: 0.7;
+  cursor: not-allowed;
 }

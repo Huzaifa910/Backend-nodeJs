@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import  "../styles/profile.css";
+import "../styles/profile.css";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -41,45 +41,42 @@ const Profile = () => {
   };
 
   if (loading) {
-    return <div className={styles.loading}>Loading profile...</div>;
+    return <div className="loading">Loading profile...</div>;
   }
 
   return (
-    <div className={styles.container}>
+    <div className="container">
       {/* 🔙 Back button */}
-      <button
-        className={styles.backBtn}
-        onClick={() => navigate("/dashboard")}
-      >
-        ← Back
+      <button className="backBtn" onClick={() => navigate("/dashboard")}>
+        ← Back to dashboard
       </button>
 
-      <div className={styles.card}>
-        <h2 className={styles.title}>👤 My Profile</h2>
+      <div className="card">
+        <h2 className="title">👤 My Profile</h2>
 
-        <div className={styles.field}>
+        <div className="field">
           <label>Name</label>
           <p>{profile.name}</p>
         </div>
 
-        <div className={styles.field}>
+        <div className="field">
           <label>Email</label>
           <p>{profile.email}</p>
         </div>
 
-        <div className={styles.field}>
+        <div className="field">
           <label>Role</label>
           <p>User</p>
         </div>
 
-         <div className={styles.field}>
+        <div className="field">
           <label>Status</label>
           <p>Active</p>
         </div>
 
         {/* ✏️ Edit button */}
         <button
-          className={styles.editBtn}
+          className="editBtn"
           onClick={() => navigate("/editProfile")}
         >
           Edit your profile

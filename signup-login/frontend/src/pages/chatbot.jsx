@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import "../styles/chatbot.css";
 import { formatAIResponse } from "../utils/formatAIResponse";
 
-
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
@@ -22,7 +21,6 @@ const Chatbot = () => {
     "Tell me a programming joke",
   ];
 
-  // auto scroll
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
@@ -61,25 +59,14 @@ const Chatbot = () => {
         }
       );
 
-    //   console.log("API RESPONSE:", res.data);
-// console.log("FULL RESPONSE:", res);
-// console.log("DATA:", res.data.ai);
+      const botMessage = {
+        id: crypto.randomUUID(),
+        sender: "bot",
+        text: formatAIResponse(res.data.ai),
+        time: new Date(),
+      };
 
-const botMessage = {
-  id: crypto.randomUUID(),
-  sender: "bot",
-  text: formatAIResponse(res.data.ai),
-  time: new Date(),
-};
-
-setMessages((prev) => [...prev, botMessage]);
-
-
-// console.log(res.data.ai)
-console.log("botMessage" , botMessage)
-
-// setMessages(prev => [...prev, botMessage]);
-
+      setMessages((prev) => [...prev, botMessage]);
     } catch (err) {
       console.error(err);
 
@@ -104,20 +91,18 @@ console.log("botMessage" , botMessage)
   };
 
   return (
-    <div className={styles.chatbotContainer}>
-      <div className={styles.chatWindow}>
+    <div className="chatbotContainer">
+      <div className="chatWindow">
         {/* Header */}
-        <div className={styles.header}>
-          <div className={styles.title}>
-            🤖 Gemini AI Assistant
-          </div>
-          <button onClick={() => navigate("/dashboard")} className={styles.backBtn}>
+        <div className="chatHeader">
+          <div className="chatTitle">🤖 Gemini AI Assistant</div>
+          <button className="backBtn" onClick={() => navigate("/dashboard")}>
             Back
           </button>
         </div>
 
         {/* Suggestions */}
-        <div className={styles.suggestions}>
+        <div className="suggestions">
           {quickSuggestions.map((q, i) => (
             <button key={i} onClick={() => sendMessage(q)}>
               {q}
@@ -126,24 +111,20 @@ console.log("botMessage" , botMessage)
         </div>
 
         {/* Messages */}
-        <div className={styles.messages}>
+        <div className="messages">
           {messages.length === 0 && (
-            <div className={styles.empty}>
-              Start chatting with AI 🤖
-            </div>
+            <div className="empty">Start chatting with AI 🤖</div>
           )}
 
           {messages.map((msg) => (
             <div
               key={msg.id}
-              className={`${styles.message} ${
-                msg.sender === "user"
-                  ? styles.userMessage
-                  : styles.botMessage
+              className={`message ${
+                msg.sender === "user" ? "userMessage" : "botMessage"
               }`}
             >
-              <div className={styles.bubble}>{msg.text}</div>
-              <span className={styles.time}>
+              <div className="bubble">{msg.text}</div>
+              <span className="time">
                 {new Date(msg.time).toLocaleTimeString([], {
                   hour: "2-digit",
                   minute: "2-digit",
@@ -153,8 +134,8 @@ console.log("botMessage" , botMessage)
           ))}
 
           {loading && (
-            <div className={`${styles.message} ${styles.botMessage}`}>
-              <div className={styles.bubble}>Typing...</div>
+            <div className="message botMessage">
+              <div className="bubble">Typing...</div>
             </div>
           )}
 
@@ -162,7 +143,7 @@ console.log("botMessage" , botMessage)
         </div>
 
         {/* Input */}
-        <div className={styles.inputBox}>
+        <div className="inputBox">
           <textarea
             placeholder="Type a message..."
             value={input}

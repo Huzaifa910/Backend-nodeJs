@@ -1,11 +1,10 @@
-import React from 'react'
+import { Navigate, Outlet } from "react-router-dom";
+import Dashboard from "../pages/dashboard";
 
-const AuthRoute = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
-
-export default AuthRoute
+export const AuthRoute = () => {
+  return !localStorage.getItem("token") ? (
+    <Outlet />
+  ) : (
+    <Navigate to={<Dashboard />} />
+  );
+};
