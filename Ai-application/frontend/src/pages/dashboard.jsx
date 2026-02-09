@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/dashboard.css";
+import Navbar from "../components/Navbar";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -17,7 +18,8 @@ const Dashboard = () => {
     {
       id: 1,
       title: "🤖 AI Chatbot",
-      description: "Chat with intelligent AI assistant powered by Google Gemini",
+      description:
+        "Chat with intelligent AI assistant powered by Google Gemini",
       icon: "💬",
       gradient: "cardGradient1",
       onClick: () => navigate("/chatbot"),
@@ -79,13 +81,11 @@ const Dashboard = () => {
 
   return (
     <div className="dashboardContainer">
+      <Navbar />
       {/* Hero */}
       <header className="heroSection">
         <div className="heroContent">
           <h1 className="heroTitle">Welcome to AI Powered Application</h1>
-          <p className="heroSubtitle">
-            Hi {user?.name || "User"}! Explore powerful AI tools and features
-          </p>
         </div>
       </header>
 
@@ -142,19 +142,31 @@ const Dashboard = () => {
           <div className="quickActions">
             <h3 className="sectionTitle">Quick Actions</h3>
             <div className="actionsGrid">
-              <button className="actionButton" onClick={() => navigate("/chatbot")}>
+              <button
+                className="actionButton"
+                onClick={() => navigate("/chatbot")}
+              >
                 <span className="actionIcon">🤖</span> New Chat
               </button>
 
-              <button className="actionButton" onClick={() => navigate("/profile")}>
+              <button
+                className="actionButton"
+                onClick={() => navigate("/profile")}
+              >
                 <span className="actionIcon">👤</span> Edit Profile
               </button>
 
-              <button className="actionButton" onClick={() => navigate("/settings")}>
+              <button
+                className="actionButton"
+                onClick={() => navigate("/settings")}
+              >
                 <span className="actionIcon">⚙️</span> Settings
               </button>
 
-              <button className="actionButton" onClick={() => navigate("/help")}>
+              <button
+                className="actionButton"
+                onClick={() => navigate("/help")}
+              >
                 <span className="actionIcon">❓</span> Help Center
               </button>
             </div>
